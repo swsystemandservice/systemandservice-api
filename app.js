@@ -8,7 +8,7 @@ const app = express();
 const env = process.env.NODE_ENV || "development";
 const PORT = process.env.PORT || 3030;
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://test.sw-systemandservice.com"],
+  origin: ["*"],
   optionsSuccessStatus: 200,
 };
 
