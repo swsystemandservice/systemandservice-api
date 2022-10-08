@@ -7,7 +7,7 @@ const QuestionRepository = {
   findAll: async (order, search) =>
     await db.Questions.findAll({
       where: {
-        title: !isEmpty(search) ? { [Op.like]: `%${search}%` } : "false",
+        title: !isEmpty(search) ? { [Op.like]: `%${search}%` } : { [Op.ne]: "" },
         status: {
           [Op.eq]: StatusItmeEnum.ACTIVE,
         },
