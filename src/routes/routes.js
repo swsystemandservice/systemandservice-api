@@ -7,6 +7,7 @@ import ProductRouter from '../modules/product/product.route.js'
 import SaleRouter from '../modules/sale/sale.route.js'
 import PicworkRouter from '../modules/picwork/picwork.route.js'
 import RepairRouter from '../modules/repair/repair.route.js'
+import PublicizeRouter from '../modules/publicize/publicize.route.js'
 
 const router = express.Router()
 
@@ -23,5 +24,6 @@ router.use('/api/product', ProductRouter)
 router.use('/api/sale', SaleRouter)
 router.use('/api/picwork', PicworkRouter)
 router.use('/api/repair', RepairRouter)
+router.use('/api/publicize', PublicizeRouter)
 
 export default router
