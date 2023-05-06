@@ -9,13 +9,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Picworks && this.belongsTo(models.Picworks, { foreignKey: "picwork_id" });
+      models.Picworks &&
+        this.belongsTo(models.Picworks, { foreignKey: "picwork_id" });
     }
   }
   AlbumImages.init(
     {
       picwork_id: DataTypes.INTEGER,
       image_album: DataTypes.STRING,
+      place: DataTypes.STRING,
+      activity: DataTypes.STRING,
+      detail: DataTypes.STRING,
     },
     {
       // setting sequelize

@@ -7,9 +7,9 @@ const upload = multer(multerConfig).single(keyUpload);
 
 export default {
   getAccount: async (req, res) => {
-    let queries = ""
+    let queries = "";
     if (!isEmpty(req.query.query) && JSON.parse(req.query.query).role) {
-      queries = JSON.parse(req.query.query)
+      queries = JSON.parse(req.query.query);
     }
     const data = await AccountService.findAll(queries);
     res.status(200).json({
@@ -68,6 +68,7 @@ export default {
       success: true,
       accountId: req.accountId,
       fullname: req.fullname,
+      email: req.email,
       image: req.image,
       username: req.sub,
       role: req.role,
