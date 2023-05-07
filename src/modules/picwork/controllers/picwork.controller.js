@@ -97,7 +97,11 @@ export default {
           message: error,
         });
       }
-      const data = await PicworkService.createAlbumImages(id, req.body, req.file);
+      const data = await PicworkService.createAlbumImages(
+        id,
+        req.body,
+        req.file
+      );
       if (!data) {
         res.status(403).json({
           success: false,
@@ -107,6 +111,33 @@ export default {
         res.status(201).json({
           success: true,
           data,
+        });
+      }
+    });
+  },
+  async patchAlbumImages(req, res) {
+    const { id } = req.params;
+    upload(req, res, async (error) => {
+      if (error) {
+        console.log(`error: ${JSON.stringify(error)}`);
+        return res.status(500).json({
+          success: true,
+          message: error,
+        });
+      }
+      const data = await PicworkService.patchAlbumImagesById(
+        +id,
+        req.body,
+        req.file
+      );
+      if (data) {
+        res.status(201).json({
+          success: true,
+          data,
+        });
+      } else {
+        res.status(204).json({
+          success: false,
         });
       }
     });
